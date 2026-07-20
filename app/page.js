@@ -1,5 +1,5 @@
-import MentalEdgeDashboard from "./components/MentalEdgeDashboard";
+import ShepherdCommandDashboard from "./components/ShepherdCommandDashboard";
 
 export default function Home() {
-  return <MentalEdgeDashboard />;
+  return <ShepherdCommandDashboard />;
 }
