@@ -200,6 +200,18 @@ const PRODUCTS = [
   },
 ];
 
+// ---- NACE Job Outlook — attributes employers seek on a résumé ----
+// Client-sourced (Matt), quoted verbatim from NACE Job Outlook. Also shipped
+// in Shepherd Captain's Corps; treatment reused here for visual consistency.
+const NACE = [
+  { label: "Leadership", pct: 80.1 },
+  { label: "Ability to Work in a Team", pct: 78.9 },
+  { label: "Problem Solving", pct: 70.2 },
+  { label: "Communication", pct: 69 },
+  { label: "Strong Work Ethic", pct: 68.9 },
+  { label: "Initiative", pct: 65.8 },
+];
+
 // ============================================================
 // PANEL CONTENT RENDERERS
 // ============================================================
@@ -450,6 +462,35 @@ export default function ShepherdCommandDashboard() {
         </div>
       </section>
 
+      {/* breathing space */}
+      <div className="space-break" />
+
+      {/* NACE JOB OUTLOOK */}
+      <section className="zone zone-nace">
+        <div className="zone-title">The NACE Job Outlook</div>
+        <div className="nace-card">
+          <div className="nace-sub">
+            Share of employers citing each attribute as one they look for on a candidate&rsquo;s résumé.
+          </div>
+          <ul className="nace-list">
+            {NACE.map(({ label, pct }) => (
+              <li key={label} className="nace-row">
+                <div className="nace-head">
+                  <span className="nace-label">{label}</span>
+                  <span className="nace-pct">{pct}%</span>
+                </div>
+                <div className="nace-track">
+                  <div className="nace-fill" style={{ width: `${pct}%` }} />
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="nace-source">
+            Source: National Association of Colleges and Employers (NACE), Job Outlook.
+          </div>
+        </div>
+      </section>
+
       {/* TICKER */}
       <footer className="ticker">
         <div className="ticker-tag">THE 15 MINDSETS</div>
@@ -628,6 +669,21 @@ const CSS = `
 .prog-tile--stub { cursor: default; }
 .prog-tile--stub:hover { transform: none; border-color: rgba(20,22,27,0.09); box-shadow: none; }
 .prog-tile--stub::before { display: none; }
+
+/* NACE JOB OUTLOOK */
+.nace-card {
+  background: linear-gradient(160deg, #eaddbd, #e7d9b8);
+  border: 1px solid rgba(20,22,27,0.10);
+  border-radius: 16px; padding: 22px 26px 20px;
+}
+.nace-sub { font-size: 12.5px; color: #6e5f38; line-height: 1.45; margin-bottom: 18px; max-width: 640px; }
+.nace-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.nace-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.nace-label { font-size: 13.5px; font-weight: 700; color: #14161b; letter-spacing: 0.2px; }
+.nace-pct { font-size: 13.5px; font-weight: 800; color: #b8860b; }
+.nace-track { margin-top: 6px; height: 8px; width: 100%; background: rgba(20,22,27,0.10); border-radius: 999px; overflow: hidden; }
+.nace-fill { height: 100%; background: #b8860b; border-radius: 999px; }
+.nace-source { font-size: 11px; color: #6e5f38; font-style: italic; margin-top: 18px; }
 
 /* TICKER */
 .ticker {
