@@ -11,22 +11,26 @@ import React, { useState, useEffect, useCallback } from "react";
 
 
 // ---- 15 Mindsets + one stat each (ticker) ----
+// Stats from Build Brief §5 (Athletic Mental Edge Mindset Training).
+// Accent color is hardcoded #b8860b in the ticker/stats CSS, so no per-item color.
+// Challenge Mastery (#9) and Mental Fortitude (#13) have no honestly-sourced
+// stat in the source doc — rendered as mindset name only (brief §5 flag).
 const MINDSETS = [
-  ["Discipline", "25% increase in sustained peak performance"],
-  ["Resilience", "explains 45% of performance variance"],
-  ["Teamwork", "18% of the variance in team performance"],
-  ["Focus", "pressure cuts performance 15% without it"],
-  ["Ambition", "21% more likely to reach elite levels"],
-  ["Adaptability", "25% higher success in dynamic game scenarios"],
-  ["Curiosity", "learn new skills 30% faster"],
-  ["Reflection", "30% better self-awareness & adjustments"],
-  ["Challenge Mastery", "40% better stress management"],
-  ["Self-Development", "30% increase in tactical decision-making"],
-  ["Grit", "25% more likely to finish demanding programs"],
-  ["Perseverance", "23% increase in endurance capacity"],
-  ["Mental Fortitude", "45% of performance variance explained"],
-  ["Emotional Stamina", "25% reduction in mental fatigue"],
-  ["Tenacity", "35% more successful comebacks after setbacks"],
+  ["Discipline", "Athletes with high self-control improved performance by 20%"],
+  ["Resilience", "Mental toughness and resilience explain 45% of the variance in trail runners' performance"],
+  ["Teamwork", "Team cohesion accounts for approximately 18% of the variance in team performance"],
+  ["Focus", "High-pressure situations impair performance by approximately 15% due to increased self-focus and anxiety"],
+  ["Ambition", "Athletes with high ambition are 21% more likely to reach elite levels"],
+  ["Adaptability", "Athletes trained in adaptive techniques showed a 23% increase in successful mid-game strategy shifts"],
+  ["Curiosity", "Athletes with high curiosity learned new skills 30% faster"],
+  ["Reflection", "Athletes engaging in regular reflection improved performance by 25%"],
+  ["Challenge Mastery", ""],
+  ["Self Development", "Athletes engaging in deliberate practice outside structured sessions showed a 25% improvement in skill acquisition"],
+  ["Grit", "Athletes with higher grit were 25% more likely to complete a demanding training program"],
+  ["Perseverance", "Perseverance contributed to a 20% improvement in marathon completion times"],
+  ["Mental Fortitude", ""],
+  ["Emotional Stamina", "Athletes using relaxation techniques before competition showed a 25% reduction in mental fatigue symptoms"],
+  ["Tenacity", "High tenacity correlated with a 35% increase in successful comeback performances after setbacks"],
 ];
 
 // ---- Audience tiles (4) ----
@@ -35,7 +39,7 @@ const AUDIENCES = [
     id: "ad",
     label: "Athletic Departments",
     sub: "College or High School",
-    color: "#FF2D55",
+    color: "#b8860b",
     title: "Mental Edge Academy for Athletic Departments",
     body: [
       "A department-wide mental performance system that puts every team — and every coach — on the same proven methodology. One operating standard for mental fitness across your entire program.",
@@ -52,7 +56,7 @@ const AUDIENCES = [
     id: "teams",
     label: "Teams",
     sub: "College or High School",
-    color: "#FF9500",
+    color: "#5a6b4a",
     title: "Mental Edge Academy for Teams",
     body: [
       "Turn your roster into a mentally tougher, more connected unit. Every athlete trains the same 15 Performance Mindsets daily, anchored to your season and your sport.",
@@ -69,7 +73,7 @@ const AUDIENCES = [
     id: "individuals",
     label: "Individuals",
     sub: "Athletes & Families",
-    color: "#34C759",
+    color: "#1b2a4a",
     title: "Mental Edge Academy for Individuals",
     body: [
       "For the athlete who wants the edge nobody can see. A self-paced mental training system that builds discipline, resilience, and focus the same way the weight room builds the body.",
@@ -86,7 +90,7 @@ const AUDIENCES = [
     id: "orgs",
     label: "Organizations",
     sub: "Travel Teams, Pro Teams & More",
-    color: "#0A84FF",
+    color: "#8a7c58",
     title: "Mental Edge Academy for Organizations",
     body: [
       "Built for clubs, travel organizations, and professional outfits that compete across many teams and age groups. Deploy one mental performance standard across your whole organization.",
@@ -107,7 +111,7 @@ const METHODOLOGY = [
     id: "abm",
     label: "Active Brain Management",
     tag: "The Methodology",
-    color: "#BF5AF2",
+    color: "#b8860b",
     custom: "abm",
     blurb: "The proprietary daily training loop behind everything we do — the science of how the mind is trained.",
   },
@@ -115,218 +119,84 @@ const METHODOLOGY = [
     id: "stats",
     label: "Key Mindset Statistics",
     tag: "The Research",
-    color: "#5AC8FA",
+    color: "#1b2a4a",
     custom: "stats",
     blurb: "The peer-reviewed data behind the 15 Performance Mindsets. The mental game, proven.",
   },
 ];
 
-// ---- Products & Services tiles (12) — 3 across, 4 rows ----
+// ---- Products & Services tiles (6) — Shepherd Mental Edge v1 ----
+// Deferred pending client decision: Library add-ons (SEWN Bulletin Board,
+// Athlete Locker Room, NeuroFitness Community Hub) and Activate 7.
+//
+// Grounded body/bullets are written only where a source spec exists
+// (Mirror, Captain's Corps — per Eric's Shepherd Product Build Brief).
+// The other four are `stub: true`: factual eyebrow + label only, no panel,
+// until RC confirms current framing (esp. Goliaths name/protocol count).
 const PRODUCTS = [
-  // ROW 1
   {
-    id: "mwod",
-    label: "MWOD — Mindset Workout of the Day",
-    tag: "Workout of the Day",
-    color: "#FF2D55",
-    title: "MWOD — The Mindset Workout of the Day",
-    body: [
-      "365 days a year, always a new workout of the day. This is the core principle of Active Brain Management — rotating through the 15 Performance Mindsets, one focused rep at a time.",
-      "Each workout uses the best of neuroscience — visualization, mental rehearsal, verbal encoding, and neuro-journaling — to activate neuroplasticity and rewire the brain for performance.",
-    ],
-    bullets: [
-      "A new workout every day, 365 days a year",
-      "Rotates through all 15 Performance Mindsets",
-      "Visualization, mental rehearsal & verbal encoding",
-      "Activates neuroplasticity through daily reps",
-    ],
+    id: "dailyfitness",
+    label: "Daily Mental Fitness",
+    tag: "Daily Training",
+    color: "#b8860b",
+    stub: true,
   },
   {
-    id: "coaching",
-    label: "Interactive Coaching Board",
-    tag: "The Three Coaches",
-    color: "#FF375F",
-    custom: "reset",
-  },
-  {
-    id: "office",
-    label: "Office Hours",
-    tag: "Group Coaching",
-    color: "#FFD60A",
-    title: "Mental Edge Office Hours",
-    body: [
-      "Live, 30-minute mental performance sessions for athletes, coaches, athletic directors, and families. Short. Focused. Powerful. High impact, no fluff.",
-      "Every session tackles a real sports moment — pressure, slumps, confidence, leadership — with game-ready tools athletes can apply the same day. World-class speakers, practical mindset systems, real results.",
-    ],
-    bullets: [
-      "Mission Driven Athletes Win More",
-      "Separating Identity from Performance",
-      "Slump Busting & Reframing",
-      "Discipline When Motivation Fades",
-      "Mistakes as Your Athletic Teacher",
-      "Never Play the Victim · No Rearview Mirrors",
-      "Fall Seven, Rise Eight",
-    ],
-  },
-  // ROW 2
-  {
-    id: "locker",
-    label: "The Locker Room for Athletes",
-    tag: "On-Demand Resources",
-    color: "#30D158",
-    title: "The Locker Room for Athletes",
-    body: [
-      "24/7 access to the tools athletes can use when they need them most. The moment nerves spike, motivation dips, or focus slips — the right resource is one tap away.",
-      "An on-demand library that turns mental performance from a once-a-day exercise into something the athlete can reach for anytime.",
-    ],
-    bullets: [
-      "Emotion Change Tools",
-      "Motivation Vault",
-      "Post-Game Review System",
-      "Nutrition & Sleep Best Practices",
-      "Breath Work Library",
-      "Focus Under Pressure",
-    ],
-  },
-  {
-    id: "mpp",
-    label: "Mental Performance Protocols",
-    tag: "Framing & Priming",
-    color: "#BF5AF2",
-    title: "Mental Performance Protocols",
-    body: [
-      "Five key mental skills tools that help the athlete set the standards — for the team and for themselves — and build a true winning mindset through framing and priming techniques.",
-      "Protocols include writing the press release before the season starts, dedicating the season to someone in their life to create their deeper \"why,\" and building the reset protocol for in-game resets. Each one primes the athlete to compete from identity, not pressure.",
-    ],
-    bullets: [
-      "Five mental skills protocols",
-      "Set the standard for self and team",
-      "Pre-season press release & season dedication",
-      "Build the in-game reset protocol",
-    ],
+    id: "goliaths",
+    label: "Overcoming Your Goliaths",
+    tag: "Mental Performance Protocols",
+    color: "#1b2a4a",
+    stub: true,
   },
   {
     id: "captains",
     label: "Captain's Corps",
     tag: "Leadership Program",
-    color: "#0A84FF",
-    title: "Captain's Corps — The Leadership Program",
+    color: "#5a6b4a",
+    title: "The Shepherd Captain's Corps",
     body: [
-      "A 10-week, self-paced leadership program for rising athlete-leaders. Captains aren't born — they're trained. This is where the next generation of team leaders learns to carry the room.",
-      "Ten focused modules build the identity, voice, and habits of a true competitor-leader.",
+      "A 10-week, 10-module leadership program re-anchored in the Shepherd philosophy — leading like Jesus, the Chief Shepherd. Modules map onto the six Shepherd traits and the logic that leadership develops culture, culture drives behaviors, and behaviors equal outcomes.",
+      "Rising athlete-leaders build real leadership artifacts along the way — a personal and team mission, the standards and behaviors of a captain, and a signature module where they write their own leadership prayer.",
     ],
     bullets: [
       "10 weeks, 10 self-paced modules",
-      "Built for rising athlete-leaders",
-      "Trains identity, voice, and leadership habits",
-      "Develops captains who carry the team",
-    ],
-  },
-  // ROW 3
-  {
-    id: "assess",
-    label: "Assessments",
-    tag: "Tracking & Scoring",
-    color: "#64D2FF",
-    title: "Assessments — Tracking & Scoring",
-    body: [
-      "Measure the mental game like you measure everything else. A scoring and tracking system that benchmarks mindset, charts growth over a season, and turns the invisible into a number you can coach.",
-      "Radar charts across the 15 Performance Mindsets show exactly where an athlete or team is strong — and where the next rep needs to go.",
-    ],
-    bullets: [
-      "Benchmarks across the 15 Performance Mindsets",
-      "Season-long growth tracking",
-      "Radar-chart visualization",
-      "Turns mental fitness into measurable data",
+      "Anchored to the 6 Shepherd traits and servant leadership",
+      "Build UR Legacy: personal mission, team mission, captain standards",
+      "Signature module — the captain writes their own prayer",
+      "Lead like Jesus: serve, don't be served",
     ],
   },
   {
-    id: "belt",
-    label: "The Belt System",
-    tag: "Red → Silver → Black",
-    color: "#FF6B00",
-    title: "The Belt System",
+    id: "mirror",
+    label: "The Shepherd Mirror",
+    tag: "30-Day Identity",
+    color: "#8a7c58",
+    title: "The Shepherd Mirror",
     body: [
-      "Mental training, gamified. Athletes earn their way from Red Belt to Silver to Black through consistent daily reps — the same progression model that drives mastery in the dojo, applied to the mind.",
-      "Every belt is earned, never given. The system turns daily mental fitness into a visible, motivating climb.",
+      "A 30-day identity tool. Each cycle, the athlete builds the best version of themselves — a Shepherd Athlete defined through the nine Fruit of the Spirit and the six Shepherd traits, not a generic alter-ego.",
+      "A short daily exercise asks which fruit they exemplified, and where — logging real moments. At the end of 30 days they revisit and refine the profile, shading in more of each fruit over time.",
     ],
     bullets: [
-      "Red → Silver → Black progression",
-      "Earned through consistent daily reps",
-      "Visible milestones that drive motivation",
-      "Turns mental training into a climb worth making",
+      "30-day best-version identity, built on the 9 Fruit of the Spirit",
+      "Anchored to the 6 Shepherd traits, Christ at the center",
+      "Each trait tied to a philosophy line and a Scripture anchor",
+      "Daily check: which fruit did you exemplify, and where?",
+      "30-day reset to refine your Shepherd-Athlete profile",
     ],
   },
   {
-    id: "dailycard",
-    label: "Daily Review Card",
-    tag: "Daily Snapshot",
-    color: "#5E5CE6",
-    title: "Daily Review Card",
-    body: [
-      "A quick dashboard at the end of each day's evening mindset exercises, so the athlete can see exactly where they sit. One glance, full picture.",
-      "Track streaks and days in a row, see progress across the mindsets, check how close you are to your next belt, and get a daily snapshot of how your mindset progression is trending.",
-    ],
-    bullets: [
-      "Streaks & days-in-a-row tracking",
-      "Mindset progression at a glance",
-      "Belt progression status",
-      "End-of-day snapshot of where you stand",
-    ],
-  },
-  // ROW 4 — coach products
-  {
-    id: "lockercoach",
-    label: "The Locker Room for Coaches",
-    tag: "On-Demand Resources",
-    color: "#FF9F0A",
-    title: "The Locker Room for Coaches",
-    body: [
-      "An on-demand library built for the people who lead. Everything a coach needs to bring mental performance into the program — ready to use before the game, during it, and all season long.",
-      "From the words that fire up a locker room to the systems that build culture, it's the coaching playbook for the mental side of the game.",
-    ],
-    bullets: [
-      "Pre-Game Speeches",
-      "In-Game Resets — regulate emotions & refocus the team",
-      "Game-Day Playbook for Coaches · Breathwork",
-      "Team Culture Systems",
-      "Leadership Tools — captain development & influence",
-      "In-Season Momentum Shift · Injury Recovery",
-    ],
+    id: "sewn",
+    label: "Eternally SEWN Journal",
+    tag: "Scripture Journaling",
+    color: "#6e5f38",
+    stub: true,
   },
   {
-    id: "weeklyscore",
-    label: "Weekly Scorecard",
-    tag: "Coach Report",
-    color: "#BF5AF2",
-    title: "Weekly Scorecard",
-    body: [
-      "A weekly snapshot delivered to coaches — who trained, how the team's mindset trended, and where to focus the conversation this week.",
-      "Turns a week of training into a single clear read, so coaches always know where the team stands and what to address next.",
-    ],
-    bullets: [
-      "Weekly team snapshot for coaches",
-      "Engagement and mindset trends",
-      "Highlights where to focus next",
-      "Delivered automatically each week",
-    ],
-  },
-  {
-    id: "activate7",
-    label: "Activate 7",
-    tag: "Burnout Prevention",
-    color: "#32D74B",
-    title: "Activate 7 — The Burnout Prevention Program",
-    body: [
-      "A 7-day coach bootcamp built on seven foundational mindsets: Gratitude, Aspiration, Mission, Hope, Resilience, Perspective, and Purpose.",
-      "Designed to protect the people who pour into everyone else — keeping coaches energized, grounded, and in the game for the long haul.",
-    ],
-    bullets: [
-      "7 days, 7 foundational mindsets",
-      "Gratitude · Aspiration · Mission · Hope",
-      "Resilience · Perspective · Purpose",
-      "Protects coaches from burnout",
-    ],
+    id: "debrief",
+    label: "Post-Game / Practice Debrief",
+    tag: "Reflection",
+    color: "#a08a52",
+    stub: true,
   },
 ];
 
@@ -452,12 +322,12 @@ function StatsPanel() {
       </p>
       <div className="stats-grid">
         {MINDSETS.map(([name, stat], i) => {
-          const num = stat.match(/\d+%?/);
+          const num = stat ? stat.match(/\d+%?/) : null;
           return (
             <div key={i} className="stat-cell">
-              <div className="stat-num">{num ? num[0] : "↑"}</div>
+              {stat && <div className="stat-num">{num ? num[0] : "↑"}</div>}
               <div className="stat-name">{name}</div>
-              <div className="stat-desc">{stat}</div>
+              {stat && <div className="stat-desc">{stat}</div>}
             </div>
           );
         })}
@@ -509,7 +379,7 @@ export default function ShepherdCommandDashboard() {
         <div className="brand">
           <span className="brand-mark" />
           <div className="brand-text">
-            <div className="brand-name">MENTAL EDGE ACADEMY</div>
+            <div className="brand-name">SHEPHERD MENTAL EDGE</div>
             <div className="brand-tag">The Command Center · Powered by Active Brain Management</div>
           </div>
         </div>
@@ -559,16 +429,24 @@ export default function ShepherdCommandDashboard() {
 
       {/* PRODUCTS & SERVICES */}
       <section className="zone zone-products">
-        <div className="zone-title">Products &amp; Services Inside Mental Edge Academy</div>
+        <div className="zone-title">Products &amp; Services Inside Shepherd Mental Edge</div>
         <div className="prog-grid">
-          {PRODUCTS.map((p) => (
-            <button key={p.id} className="prog-tile" style={{ "--c": p.color }}
-                    onClick={() => open("prog", p)}>
-              <span className="prog-tag" style={{ color: p.color }}>{p.tag}</span>
-              <span className="prog-label">{p.label}</span>
-              <span className="prog-line" style={{ background: p.color }} />
-            </button>
-          ))}
+          {PRODUCTS.map((p) =>
+            p.stub ? (
+              <div key={p.id} className="prog-tile prog-tile--stub" style={{ "--c": p.color }}>
+                <span className="prog-tag" style={{ color: p.color }}>{p.tag}</span>
+                <span className="prog-label">{p.label}</span>
+                <span className="prog-line" style={{ background: p.color }} />
+              </div>
+            ) : (
+              <button key={p.id} className="prog-tile" style={{ "--c": p.color }}
+                      onClick={() => open("prog", p)}>
+                <span className="prog-tag" style={{ color: p.color }}>{p.tag}</span>
+                <span className="prog-label">{p.label}</span>
+                <span className="prog-line" style={{ background: p.color }} />
+              </button>
+            )
+          )}
         </div>
       </section>
 
@@ -580,8 +458,12 @@ export default function ShepherdCommandDashboard() {
             {[...MINDSETS, ...MINDSETS].map(([name, stat], i) => (
               <span key={i} className="ticker-item">
                 <span className="ticker-name">{name}</span>
-                <span className="ticker-sep">—</span>
-                <span className="ticker-stat">{stat}</span>
+                {stat && (
+                  <>
+                    <span className="ticker-sep">—</span>
+                    <span className="ticker-stat">{stat}</span>
+                  </>
+                )}
                 <span className="ticker-dot">◆</span>
               </span>
             ))}
@@ -742,6 +624,10 @@ const CSS = `
 .prog-label { font-size: 14.5px; font-weight: 800; line-height: 1.14; letter-spacing: 0.2px; z-index: 1; }
 .prog-line { height: 2.5px; width: 26px; border-radius: 2px; z-index: 1; transition: width .2s ease; }
 .prog-tile:hover .prog-line { width: 46px; }
+/* Stub tiles: real-looking but non-interactive (content pending) */
+.prog-tile--stub { cursor: default; }
+.prog-tile--stub:hover { transform: none; border-color: rgba(20,22,27,0.09); box-shadow: none; }
+.prog-tile--stub::before { display: none; }
 
 /* TICKER */
 .ticker {
@@ -757,7 +643,7 @@ const CSS = `
   white-space: nowrap; flex: 0 0 auto;
 }
 .ticker-window { overflow: hidden; flex: 1 1 auto; display: flex; align-items: center; }
-.ticker-track { display: inline-flex; white-space: nowrap; animation: scroll 32s linear infinite; }
+.ticker-track { display: inline-flex; white-space: nowrap; animation: scroll 120s linear infinite; }
 .ticker-item { display: inline-flex; align-items: center; gap: 9px; padding: 0 4px; font-size: 12.5px; }
 .ticker-name { font-weight: 800; color: #14161b; letter-spacing: 0.5px; }
 .ticker-sep { color: #a08a52; }
