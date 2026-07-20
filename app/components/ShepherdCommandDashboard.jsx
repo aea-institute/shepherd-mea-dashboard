@@ -125,38 +125,76 @@ const METHODOLOGY = [
   },
 ];
 
-// ---- Products & Services tiles (6) — Shepherd Mental Edge v1 ----
-// Deferred pending client decision: Library add-ons (SEWN Bulletin Board,
-// Athlete Locker Room, NeuroFitness Community Hub) and Activate 7.
+// ---- Products & Services tiles (12) — Shepherd Mental Edge v1 ----
+// Roster + naming per Matt meeting (7/20/26). Single grid; each tile
+// carries a category chip (cat) — Preseason / In-Season / All Year /
+// Add-Ons / Future Build — instead of separate sections.
 //
-// Grounded body/bullets are written only where a source spec exists
-// (Mirror, Captain's Corps — per Eric's Shepherd Product Build Brief).
-// The other four are `stub: true`: factual eyebrow + label only, no panel,
-// until RC confirms current framing (esp. Goliaths name/protocol count).
+// Notes: Goliath stays count-free (13 protocols, one may spin off).
+// Mirror stays a standalone tile and is also referenced inside the
+// Shepherd Interactive Coach panel. Office Hours and the Athlete Locker
+// Room are Add-Ons (Office Hours is not Shepherd-branded). Activate
+// Seven is the lone Future Build stub. SEWN Journal + Bulletin Board
+// are new (launch Oct 1).
+
+// Category chip colors (additive — tiles keep their own accent color)
+const CAT = {
+  "PRESEASON":    { bg: "#b8860b", fg: "#14161b" },
+  "IN-SEASON":    { bg: "#5a6b4a", fg: "#f4f1ea" },
+  "ALL YEAR":     { bg: "#1b2a4a", fg: "#f4f1ea" },
+  "ADD-ONS":      { bg: "#6e5f38", fg: "#f4f1ea" },
+  "FUTURE BUILD": { bg: "#8a7c58", fg: "#14161b" },
+};
+
 const PRODUCTS = [
+  // ---- PRESEASON ----
   {
-    id: "dailyfitness",
-    label: "Daily Mental Fitness",
-    tag: "Daily Training",
-    color: "#b8860b",
-    stub: true,
+    id: "gainingedge",
+    label: "Gaining the Edge",
+    tag: "The 90-Day Mental Edge Program",
+    cat: "PRESEASON",
+    color: "#1b2a4a",
+    title: "Gaining the Edge",
+    body: [
+      "A 90-day mental performance program built on 15 elite mindsets — with AM and PM workouts that train the mental game the way the weight room trains the body. Christian-grounded and made for Shepherd.",
+      "Progress is measured, not guessed: a baseline assessment up front, then check-ins at 30, 60, and 90 days that show exactly how far the athlete has come.",
+    ],
+    bullets: [
+      "90-day program built on 15 elite mindsets",
+      "Daily AM + PM mental workouts",
+      "Baseline assessment to start",
+      "30 / 60 / 90-day progress assessments",
+      "Christian-grounded mental training",
+    ],
   },
   {
-    id: "goliaths",
-    label: "Overcoming Your Goliaths",
-    tag: "Mental Performance Protocols",
-    color: "#1b2a4a",
-    stub: true,
+    id: "assess",
+    label: "Coach & Athlete Assessments",
+    tag: "Tracking & Scoring",
+    cat: "PRESEASON",
+    color: "#b8860b",
+    title: "Coach & Athlete Assessments",
+    body: [
+      "Measure the mental game like you measure everything else. A scoring and tracking system that benchmarks mindset, charts growth over a season, and turns the invisible into a number you can coach.",
+      "The same baseline and 30 / 60 / 90-day assessments that power Gaining the Edge — available on their own to see where every athlete and coach stands.",
+    ],
+    bullets: [
+      "Benchmarks across the 15 Performance Mindsets",
+      "Baseline + 30 / 60 / 90-day check-ins",
+      "Season-long growth tracking",
+      "Turns mental fitness into measurable data",
+    ],
   },
   {
     id: "captains",
-    label: "Captain's Corps",
+    label: "Preparing to Be a Shepherd Captain",
     tag: "Leadership Program",
+    cat: "PRESEASON",
     color: "#5a6b4a",
-    title: "The Shepherd Captain's Corps",
+    title: "Preparing to Be a Shepherd Captain",
     body: [
       "A 10-week, 10-module leadership program re-anchored in the Shepherd philosophy — leading like Jesus, the Chief Shepherd. Modules map onto the six Shepherd traits and the logic that leadership develops culture, culture drives behaviors, and behaviors equal outcomes.",
-      "Rising athlete-leaders build real leadership artifacts along the way — a personal and team mission, the standards and behaviors of a captain, and a signature module where they write their own leadership prayer.",
+      "Athlete-leaders build real leadership artifacts along the way — a personal and team mission, the standards and behaviors of a captain, and a signature module where they write their own leadership prayer.",
     ],
     bullets: [
       "10 weeks, 10 self-paced modules",
@@ -167,10 +205,44 @@ const PRODUCTS = [
     ],
   },
   {
+    id: "goliaths",
+    label: "Overcoming Your Goliath",
+    tag: "Shepherd Mental Edge Protocols",
+    cat: "PRESEASON",
+    color: "#a08a52",
+    title: "Shepherd Mental Edge Protocols — Overcoming Your Goliath",
+    body: [
+      "Mental performance protocols that help the athlete face the giant standing between them and their potential — framing and priming techniques that set the standard for self and team, so they compete from identity, not pressure.",
+    ],
+  },
+
+  // ---- IN-SEASON ----
+  {
+    id: "debrief",
+    label: "Shepherd Post-Game / Practice Debrief Report",
+    tag: "Coach Report",
+    cat: "IN-SEASON",
+    color: "#8a7c58",
+    title: "Shepherd Post-Game / Practice Debrief Report",
+    body: [
+      "A weekly in-season report delivered to the head coach — who trained, how the team's mindset trended after games and practices, and where to focus the conversation this week.",
+      "Turns a week of competition and training into a single clear read, so the head coach always knows where the team stands and what to address next.",
+    ],
+    bullets: [
+      "Weekly in-season report to the head coach",
+      "Post-game and post-practice mindset trends",
+      "Highlights where to focus next",
+      "Delivered automatically each week",
+    ],
+  },
+
+  // ---- ALL YEAR ----
+  {
     id: "mirror",
     label: "The Shepherd Mirror",
     tag: "30-Day Identity",
-    color: "#8a7c58",
+    cat: "ALL YEAR",
+    color: "#a08a52",
     title: "The Shepherd Mirror",
     body: [
       "A 30-day identity tool. Each cycle, the athlete builds the best version of themselves — a Shepherd Athlete defined through the nine Fruit of the Spirit and the six Shepherd traits, not a generic alter-ego.",
@@ -185,31 +257,91 @@ const PRODUCTS = [
     ],
   },
   {
-    id: "sewn",
-    label: "Eternally SEWN Journal",
-    tag: "Scripture Journaling",
+    id: "sewnjournal",
+    label: "SEWN Journal",
+    tag: "Weekly Bible Journaling",
+    cat: "ALL YEAR",
     color: "#6e5f38",
+    title: "SEWN Journal — Shepherd Eternally SEWN",
+    body: [
+      "A weekly interactive Bible journaling rhythm — 10 + 15 + 5 = 30 minutes a week: ten minutes reading two to three chapters, fifteen minutes journaling the SEWN method, five minutes in reflection.",
+      "S.E.W.N. — Scripture: write down what stands out · Explain: rewrite it in your own words · Where to apply: bring it to the heart · Now pray. Athletes, coaches, and the AD all read the same chapters and record their own entries.",
+    ],
+    bullets: [
+      "10 + 15 + 5 = 30 minutes a week",
+      "Scripture · Explain · Where to apply · Now pray",
+      "Coach version + athlete version",
+      "Everyone reads the same 2–3 chapters weekly",
+      "Launching October 1",
+    ],
+  },
+  {
+    id: "sewnboard",
+    label: "SEWN Journal Bulletin Board",
+    tag: "Team Board",
+    cat: "ALL YEAR",
+    color: "#5a6b4a",
     stub: true,
   },
   {
-    id: "debrief",
-    label: "Post-Game / Practice Debrief",
-    tag: "Reflection",
-    color: "#a08a52",
+    id: "coaching",
+    label: "Shepherd Interactive Coach",
+    tag: "The Three Coaches",
+    cat: "ALL YEAR",
+    color: "#8a7c58",
+    custom: "reset",
+  },
+  {
+    id: "locker",
+    label: "Athlete Locker Room",
+    tag: "On-Demand Resources",
+    cat: "ADD-ONS",
+    color: "#1b2a4a",
+    title: "Athlete Locker Room",
+    body: [
+      "24/7 access to the tools athletes can reach for when they need them most. The moment nerves spike, motivation dips, or focus slips — the right resource is one tap away.",
+      "An on-demand library that turns mental performance from a once-a-day exercise into something the athlete can reach for anytime.",
+    ],
+    bullets: [
+      "Emotion Change Tools",
+      "Motivation Vault",
+      "Post-Game Review System",
+      "Breath Work Library",
+      "Focus Under Pressure",
+    ],
+  },
+
+  // ---- ADD-ONS ----
+  {
+    id: "office",
+    label: "Mental Edge Office Hours",
+    tag: "Group Coaching · Tue/Thu",
+    cat: "ADD-ONS",
+    color: "#6e5f38",
+    title: "Mental Edge Office Hours",
+    body: [
+      "Live, 30-minute mental performance sessions for athletes, coaches, athletic directors, and families. Short. Focused. Powerful. High impact, no fluff.",
+      "Every session tackles a real sports moment — pressure, slumps, confidence, leadership — with game-ready tools athletes can apply the same day.",
+    ],
+    bullets: [
+      "Mission Driven Athletes Win More",
+      "Separating Identity from Performance",
+      "Slump Busting & Reframing",
+      "Discipline When Motivation Fades",
+      "Mistakes as Your Athletic Teacher",
+      "Fall Seven, Rise Eight",
+    ],
+  },
+
+  // ---- FUTURE BUILD ----
+  {
+    id: "activate7",
+    label: "Activate Seven",
+    tag: "Coach Equipping",
+    cat: "FUTURE BUILD",
+    color: "#6e5f38",
     stub: true,
   },
-];
-
-// ---- NACE Job Outlook — attributes employers seek on a résumé ----
-// Client-sourced (Matt), quoted verbatim from NACE Job Outlook. Also shipped
-// in Shepherd Captain's Corps; treatment reused here for visual consistency.
-const NACE = [
-  { label: "Leadership", pct: 80.1 },
-  { label: "Ability to Work in a Team", pct: 78.9 },
-  { label: "Problem Solving", pct: 70.2 },
-  { label: "Communication", pct: 69 },
-  { label: "Strong Work Ethic", pct: 68.9 },
-  { label: "Initiative", pct: 65.8 },
 ];
 
 // ============================================================
@@ -248,17 +380,17 @@ function ResetPanel({ item }) {
     {
       name: "Confidence Coach",
       desc: "An always-open channel for the moments that matter — pre-game nerves, a tough day, a win to lock in. The athlete talks it through and walks away with a clear, mindset-based plan.",
-      color: "#FF375F",
+      color: "#b8860b",
     },
     {
       name: "Reflection Coach",
       desc: "A fast, structured post-game reflection that turns every competition into a learning rep. Four focused questions, about five minutes, one personalized takeaway.",
-      color: "#FFD60A",
+      color: "#5a6b4a",
     },
     {
       name: "Optimization Coach",
-      desc: "A private, identity-building experience. The athlete trains toward the best version of themselves — one daily rep that strengthens mindset the way the weight room strengthens the body.",
-      color: "#5AC8FA",
+      desc: "A private, identity-building experience. The athlete trains toward the best version of themselves — explored in depth in The Shepherd Mirror, the 30-day identity tool built on the Fruit of the Spirit.",
+      color: "#1b2a4a",
     },
   ];
   return (
@@ -448,9 +580,13 @@ export default function ShepherdCommandDashboard() {
       <section className="zone zone-products">
         <div className="zone-title">Products &amp; Services Inside Shepherd Mental Edge</div>
         <div className="prog-grid">
-          {PRODUCTS.map((p) =>
-            p.stub ? (
+          {PRODUCTS.map((p) => {
+            const chip = p.cat && (
+              <span className="prog-cat" style={{ background: CAT[p.cat].bg, color: CAT[p.cat].fg }}>{p.cat}</span>
+            );
+            return p.stub ? (
               <div key={p.id} className="prog-tile prog-tile--stub" style={{ "--c": p.color }}>
+                {chip}
                 <span className="prog-tag" style={{ color: p.color }}>{p.tag}</span>
                 <span className="prog-label">{p.label}</span>
                 <span className="prog-line" style={{ background: p.color }} />
@@ -458,41 +594,13 @@ export default function ShepherdCommandDashboard() {
             ) : (
               <button key={p.id} className="prog-tile" style={{ "--c": p.color }}
                       onClick={() => open("prog", p)}>
+                {chip}
                 <span className="prog-tag" style={{ color: p.color }}>{p.tag}</span>
                 <span className="prog-label">{p.label}</span>
                 <span className="prog-line" style={{ background: p.color }} />
               </button>
-            )
-          )}
-        </div>
-      </section>
-
-      {/* breathing space */}
-      <div className="space-break" />
-
-      {/* NACE JOB OUTLOOK */}
-      <section className="zone zone-nace">
-        <div className="zone-title">The NACE Job Outlook</div>
-        <div className="nace-card">
-          <div className="nace-sub">
-            Share of employers citing each attribute as one they look for on a candidate&rsquo;s résumé.
-          </div>
-          <ul className="nace-list">
-            {NACE.map(({ label, pct }) => (
-              <li key={label} className="nace-row">
-                <div className="nace-head">
-                  <span className="nace-label">{label}</span>
-                  <span className="nace-pct">{pct}%</span>
-                </div>
-                <div className="nace-track">
-                  <div className="nace-fill" style={{ width: `${pct}%` }} />
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="nace-source">
-            Source: National Association of Colleges and Employers (NACE), Job Outlook.
-          </div>
+            );
+          })}
         </div>
       </section>
 
@@ -660,9 +768,14 @@ const CSS = `
   position: relative; overflow: hidden; cursor: pointer; text-align: left;
   background: linear-gradient(165deg, #eaddbd, #e7d9b8);
   border: 1px solid rgba(20,22,27,0.09);
-  border-radius: 12px; padding: 15px 15px 14px; min-height: 96px;
+  border-radius: 12px; padding: 24px 15px 14px; min-height: 96px;
   display: flex; flex-direction: column; justify-content: space-between; gap: 7px;
   transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, background .16s ease;
+}
+.prog-cat {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 2;
+  height: 17px; display: flex; align-items: center; padding: 0 12px;
+  font-size: 8px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
 }
 .prog-tile::before {
   content: ""; position: absolute; inset: 0; opacity: 0;
@@ -680,21 +793,6 @@ const CSS = `
 .prog-tile--stub { cursor: default; }
 .prog-tile--stub:hover { transform: none; border-color: rgba(20,22,27,0.09); box-shadow: none; }
 .prog-tile--stub::before { display: none; }
-
-/* NACE JOB OUTLOOK */
-.nace-card {
-  background: linear-gradient(160deg, #eaddbd, #e7d9b8);
-  border: 1px solid rgba(20,22,27,0.10);
-  border-radius: 16px; padding: 22px 26px 20px;
-}
-.nace-sub { font-size: 12.5px; color: #6e5f38; line-height: 1.45; margin-bottom: 18px; max-width: 640px; }
-.nace-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-.nace-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.nace-label { font-size: 13.5px; font-weight: 700; color: #14161b; letter-spacing: 0.2px; }
-.nace-pct { font-size: 13.5px; font-weight: 800; color: #b8860b; }
-.nace-track { margin-top: 6px; height: 8px; width: 100%; background: rgba(20,22,27,0.10); border-radius: 999px; overflow: hidden; }
-.nace-fill { height: 100%; background: #b8860b; border-radius: 999px; }
-.nace-source { font-size: 11px; color: #6e5f38; font-style: italic; margin-top: 18px; }
 
 /* TICKER */
 .ticker {
