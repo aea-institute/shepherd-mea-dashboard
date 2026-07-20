@@ -390,15 +390,20 @@ export default function ShepherdCommandDashboard() {
       <header className="mea-header">
         <div className="brand">
           <span className="brand-mark" />
-          <div className="brand-text">
-            <div className="brand-name">SHEPHERD MENTAL EDGE</div>
-            <div className="brand-tag">The Command Center · Powered by Active Brain Management</div>
-          </div>
         </div>
         <div className="brand-right">
           <span className="live-dot" /> 15 PERFORMANCE MINDSETS · TRAINED DAILY
         </div>
       </header>
+
+      {/* HERO */}
+      <section className="hero">
+        <h1 className="hero-title">Shepherd Mental Edge</h1>
+        <div className="hero-subtitle">The Command Center</div>
+        <p className="hero-lead">
+          Mental performance training for athletic departments, teams, individuals, and organizations — powered by the AEA Institute.
+        </p>
+      </section>
 
       {/* AUDIENCE ROW */}
       <section className="zone zone-aud">
@@ -579,6 +584,12 @@ const CSS = `
   box-shadow: 0 0 10px #b8860b; animation: pulse 1.4s infinite;
 }
 @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+
+/* HERO */
+.hero { flex: 0 0 auto; padding: 4px 0 20px; }
+.hero-title { font-size: 40px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.04; color: #14161b; }
+.hero-subtitle { font-size: 18px; font-weight: 800; letter-spacing: 0.5px; color: #b8860b; margin-top: 4px; }
+.hero-lead { font-size: 15px; color: #6e5f38; line-height: 1.5; margin-top: 12px; max-width: 680px; }
 
 /* ZONES */
 .zone { flex: 0 0 auto; }

@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Mental Edge Academy — The Command Center",
+  title: "Shepherd Mental Edge — The Command Center",
   description:
-    "Mental performance training for athletic departments, teams, individuals, and organizations. Powered by Active Brain Management.",
+    "Mental performance training for athletic departments, teams, individuals, and organizations. Powered by the AEA Institute.",
 };
 
 export default function RootLayout({ children }) {
