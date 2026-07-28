@@ -147,12 +147,18 @@ const CAT = {
 };
 
 const PRODUCTS = [
-  // ---- PRESEASON ----
+  // Grid order: the four Required tiles lead (positions 1–4), then the SEWN
+  // Journal Bulletin Board (kept next to the SEWN Journal tiles), then the
+  // remaining tiles. Category chips (cat) still label each tile; ordering is
+  // no longer grouped by category.
+
+  // ---- REQUIRED (front of grid) ----
   {
     id: "gainingedge",
     label: "Gaining the Edge",
     tag: "The 90-Day Mental Edge Program",
-    cat: "PRESEASON",
+    cat: "ALL YEAR",
+    required: true,
     color: "#1b2a4a",
     title: "Gaining the Edge",
     body: [
@@ -168,10 +174,43 @@ const PRODUCTS = [
     ],
   },
   {
+    id: "sewnjournal",
+    label: "SEWN Journal",
+    tag: "Weekly Bible Journaling",
+    cat: "ALL YEAR",
+    required: true,
+    color: "#6e5f38",
+    title: "SEWN Journal — Shepherd Eternally SEWN",
+    body: [
+      "A weekly interactive Bible journaling rhythm — 10 + 15 + 5 = 30 minutes a week: ten minutes reading two to three chapters, fifteen minutes journaling the SEWN method, five minutes in reflection.",
+      "S.E.W.N. — Scripture: write down what stands out · Explain: rewrite it in your own words with focus on the 15 Elite Performance Mindsets · Where to apply: bring it to the heart · Now pray. Athletes, coaches, and the AD all read the same chapters and record their own entries.",
+    ],
+    bullets: [
+      "10 + 15 + 5 = 30 minutes a week",
+      "Scripture · Explain · Where to apply · Now pray",
+      "Coach version + athlete version",
+      "Everyone reads the same 2–3 chapters weekly",
+      "Launching October 1",
+    ],
+  },
+  {
+    id: "goliaths",
+    label: "Overcoming Your Goliath",
+    tag: "Shepherd Mental Edge Protocols",
+    cat: "PRESEASON",
+    required: true,
+    color: "#a08a52",
+    title: "Shepherd Mental Edge Protocols — Overcoming Your Goliath",
+    body: [
+      "Mental performance protocols that help the athlete face the giant standing between them and their potential — framing and priming techniques that set the standard for self and team, so they compete from identity, not pressure.",
+    ],
+  },
+  {
     id: "assess",
     label: "Coach & Athlete Assessments",
     tag: "Tracking & Scoring",
-    cat: "PRESEASON",
+    cat: "ALL YEAR",
+    required: true,
     color: "#b8860b",
     title: "Coach & Athlete Assessments",
     body: [
@@ -185,6 +224,16 @@ const PRODUCTS = [
       "Turns mental fitness into measurable data",
     ],
   },
+  {
+    id: "sewnboard",
+    label: "SEWN Journal Bulletin Board",
+    tag: "Team Board",
+    cat: "ALL YEAR",
+    color: "#5a6b4a",
+    stub: true,
+  },
+
+  // ---- REMAINING ----
   {
     id: "captains",
     label: "Preparing to Be a Shepherd Captain",
@@ -205,25 +254,12 @@ const PRODUCTS = [
     ],
   },
   {
-    id: "goliaths",
-    label: "Overcoming Your Goliath",
-    tag: "Shepherd Mental Edge Protocols",
-    cat: "PRESEASON",
-    color: "#a08a52",
-    title: "Shepherd Mental Edge Protocols — Overcoming Your Goliath",
-    body: [
-      "Mental performance protocols that help the athlete face the giant standing between them and their potential — framing and priming techniques that set the standard for self and team, so they compete from identity, not pressure.",
-    ],
-  },
-
-  // ---- IN-SEASON ----
-  {
     id: "debrief",
-    label: "Shepherd Post-Game / Practice Debrief Report",
+    label: "Shepherd Post-Game | Practice Debrief Report",
     tag: "Coach Report",
     cat: "IN-SEASON",
     color: "#8a7c58",
-    title: "Shepherd Post-Game / Practice Debrief Report",
+    title: "Shepherd Post-Game | Practice Debrief Report",
     body: [
       "A weekly in-season report delivered to the head coach — who trained, how the team's mindset trended after games and practices, and where to focus the conversation this week.",
       "Turns a week of competition and training into a single clear read, so the head coach always knows where the team stands and what to address next.",
@@ -235,8 +271,6 @@ const PRODUCTS = [
       "Delivered automatically each week",
     ],
   },
-
-  // ---- ALL YEAR ----
   {
     id: "mirror",
     label: "The Shepherd Mirror",
@@ -255,33 +289,6 @@ const PRODUCTS = [
       "Daily check: which fruit did you exemplify, and where?",
       "30-day reset to refine your Shepherd-Athlete profile",
     ],
-  },
-  {
-    id: "sewnjournal",
-    label: "SEWN Journal",
-    tag: "Weekly Bible Journaling",
-    cat: "ALL YEAR",
-    color: "#6e5f38",
-    title: "SEWN Journal — Shepherd Eternally SEWN",
-    body: [
-      "A weekly interactive Bible journaling rhythm — 10 + 15 + 5 = 30 minutes a week: ten minutes reading two to three chapters, fifteen minutes journaling the SEWN method, five minutes in reflection.",
-      "S.E.W.N. — Scripture: write down what stands out · Explain: rewrite it in your own words · Where to apply: bring it to the heart · Now pray. Athletes, coaches, and the AD all read the same chapters and record their own entries.",
-    ],
-    bullets: [
-      "10 + 15 + 5 = 30 minutes a week",
-      "Scripture · Explain · Where to apply · Now pray",
-      "Coach version + athlete version",
-      "Everyone reads the same 2–3 chapters weekly",
-      "Launching October 1",
-    ],
-  },
-  {
-    id: "sewnboard",
-    label: "SEWN Journal Bulletin Board",
-    tag: "Team Board",
-    cat: "ALL YEAR",
-    color: "#5a6b4a",
-    stub: true,
   },
   {
     id: "coaching",
@@ -310,8 +317,6 @@ const PRODUCTS = [
       "Focus Under Pressure",
     ],
   },
-
-  // ---- ADD-ONS ----
   {
     id: "office",
     label: "Mental Edge Office Hours",
@@ -332,11 +337,9 @@ const PRODUCTS = [
       "Fall Seven, Rise Eight",
     ],
   },
-
-  // ---- FUTURE BUILD ----
   {
     id: "activate7",
-    label: "Activate Seven",
+    label: "Activate Seven | Building a Shepherd Legacy",
     tag: "Coach Equipping",
     cat: "FUTURE BUILD",
     color: "#6e5f38",
@@ -521,7 +524,9 @@ export default function ShepherdCommandDashboard() {
       {/* HEADER */}
       <header className="mea-header">
         <div className="brand">
-          <span className="brand-mark" />
+          <span className="brand-mark">
+            <img src="/shepherd-logo.svg" alt="Shepherd Coach Network" className="brand-logo" />
+          </span>
         </div>
         <div className="brand-right">
           <span className="live-dot" /> 15 PERFORMANCE MINDSETS · TRAINED DAILY
@@ -595,7 +600,10 @@ export default function ShepherdCommandDashboard() {
               <button key={p.id} className="prog-tile" style={{ "--c": p.color }}
                       onClick={() => open("prog", p)}>
                 {chip}
-                <span className="prog-tag" style={{ color: p.color }}>{p.tag}</span>
+                <span className="prog-tag-row">
+                  <span className="prog-tag" style={{ color: p.color }}>{p.tag}</span>
+                  {p.required && <span className="prog-required">Required</span>}
+                </span>
                 <span className="prog-label">{p.label}</span>
                 <span className="prog-line" style={{ background: p.color }} />
               </button>
@@ -677,9 +685,11 @@ const CSS = `
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-mark {
-  width: 30px; height: 30px; border-radius: 7px;
-  background: conic-gradient(from 210deg, #b8860b, #d8a93a, #a08a52, #8a7c58, #6e5f38, #b8860b);
-  box-shadow: 0 0 22px rgba(184,134,11,0.45);
+  position: relative; width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+}
+.brand-logo {
+  width: 52px; height: 52px; object-fit: contain; display: block;
 }
 .brand-name { font-size: 17px; font-weight: 800; letter-spacing: 2.5px; }
 .brand-tag { font-size: 10px; letter-spacing: 1.4px; color: #6e5f38; text-transform: uppercase; margin-top: 2px; }
@@ -786,6 +796,11 @@ const CSS = `
 .prog-tile:hover::before { opacity: 0.20; }
 .prog-tile:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
 .prog-tag { font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 800; z-index: 1; }
+.prog-tag-row { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; z-index: 1; }
+.prog-required {
+  font-size: 8px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+  color: #fff; background: #a4243b; border-radius: 3px; padding: 1.5px 5px; line-height: 1.35;
+}
 .prog-label { font-size: 14.5px; font-weight: 800; line-height: 1.14; letter-spacing: 0.2px; z-index: 1; }
 .prog-line { height: 2.5px; width: 26px; border-radius: 2px; z-index: 1; transition: width .2s ease; }
 .prog-tile:hover .prog-line { width: 46px; }
