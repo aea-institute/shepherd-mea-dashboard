@@ -131,10 +131,11 @@ const METHODOLOGY = [
 // Add-Ons / Future Build — instead of separate sections.
 //
 // Notes: Goliath stays count-free (13 protocols, one may spin off).
-// Mirror stays a standalone tile and is also referenced inside the
-// Shepherd Interactive Coach panel. Office Hours and the Athlete Locker
-// Room are Add-Ons (Office Hours is not Shepherd-branded). Activate
-// Seven is the lone Future Build stub. SEWN Journal + Bulletin Board
+// The Shepherd Mirror is no longer a standalone tile — it's wrapped into
+// the Shepherd Interactive Coach (still referenced in that panel). Office
+// Hours and the Athlete Locker Room are Add-Ons (Office Hours is not
+// Shepherd-branded). Activate Seven is the lone Future Build stub. The
+// Parent/Guardian Toolkit is a new Add-On. SEWN Journal + Bulletin Board
 // are new (launch Oct 1).
 
 // Category chip colors (additive — tiles keep their own accent color)
@@ -254,6 +255,14 @@ const PRODUCTS = [
     ],
   },
   {
+    id: "coaching",
+    label: "Shepherd Interactive Coach",
+    tag: "The Three Coaches",
+    cat: "ALL YEAR",
+    color: "#8a7c58",
+    custom: "reset",
+  },
+  {
     id: "debrief",
     label: "Shepherd Post-Game | Practice Debrief Report",
     tag: "Coach Report",
@@ -272,31 +281,12 @@ const PRODUCTS = [
     ],
   },
   {
-    id: "mirror",
-    label: "The Shepherd Mirror",
-    tag: "30-Day Identity",
-    cat: "ALL YEAR",
-    color: "#a08a52",
-    title: "The Shepherd Mirror",
-    body: [
-      "A 30-day identity tool. Each cycle, the athlete builds the best version of themselves — a Shepherd Athlete defined through the nine Fruit of the Spirit and the six Shepherd traits, not a generic alter-ego.",
-      "A short daily exercise asks which fruit they exemplified, and where — logging real moments. At the end of 30 days they revisit and refine the profile, shading in more of each fruit over time.",
-    ],
-    bullets: [
-      "30-day best-version identity, built on the 9 Fruit of the Spirit",
-      "Anchored to the 6 Shepherd traits, Christ at the center",
-      "Each trait tied to a philosophy line and a Scripture anchor",
-      "Daily check: which fruit did you exemplify, and where?",
-      "30-day reset to refine your Shepherd-Athlete profile",
-    ],
-  },
-  {
-    id: "coaching",
-    label: "Shepherd Interactive Coach",
-    tag: "The Three Coaches",
-    cat: "ALL YEAR",
-    color: "#8a7c58",
-    custom: "reset",
+    id: "activate7",
+    label: "Activate Seven | Building a Shepherd Legacy",
+    tag: "Coach Equipping",
+    cat: "FUTURE BUILD",
+    color: "#6e5f38",
+    stub: true,
   },
   {
     id: "locker",
@@ -338,12 +328,24 @@ const PRODUCTS = [
     ],
   },
   {
-    id: "activate7",
-    label: "Activate Seven | Building a Shepherd Legacy",
-    tag: "Coach Equipping",
-    cat: "FUTURE BUILD",
-    color: "#6e5f38",
-    stub: true,
+    id: "parentguardian",
+    label: "Parent/Guardian Toolkit",
+    tag: "Mental Edge for Families",
+    cat: "ADD-ONS",
+    color: "#a08a52",
+    title: "Parent/Guardian Toolkit — Mental Edge for Families",
+    body: [
+      "The mental game doesn't end when practice does — it rides home in the car. This toolkit gives parents and guardians their own set of resources so the support at home reinforces what the athlete is building, instead of adding pressure.",
+      "Families are guided across four areas — understanding your athlete, building the relationship, supporting their growth, and the all-important car ride home — with quizzes, conversation guides, and workbooks to work through together.",
+    ],
+    bullets: [
+      "Roadblock Evaluation — spot what's holding your athlete back",
+      "Parent Style Quiz — see how your sideline support is landing",
+      "Identity, character & legacy guides beyond the scoreboard",
+      "Conversation guides for competition, roles & commitment",
+      "Preseason planning + Stop · Keep · Start seasonal reviews",
+      "The Car Ride — guided post-game debrief questions",
+    ],
   },
 ];
 
