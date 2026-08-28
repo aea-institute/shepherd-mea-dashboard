@@ -619,32 +619,35 @@ export default function ParentsDashboard() {
           <div className="tk-head">
             <div className="tk-eyebrow">For Parents, Guardians &amp; Grandparents</div>
             <h2 className="tk-title">The Parent / Guardian Toolkit</h2>
-            <div className="tk-subhead">Walk it with them, one week at a time.</div>
+            <div className="tk-subhead">Practical tools for the moments that matter.</div>
             <p className="tk-lead">
-              Your athlete is training their mind and spirit every day. The Toolkit lets
-              you do it right alongside them — the same weekly Scripture they&apos;re in,
-              adapted for parents, guardians, and grandparents. The easiest way to
-              reinforce at home exactly what they&apos;re building in the program.
+              Your athlete is training their mental game every day. The Toolkit gives you
+              the practical, real-world tools to support them at home — a 10-resource
+              guided workbook built for parents, guardians, and grandparents, worked at
+              your own pace.
             </p>
           </div>
 
           <div className="tk-cards">
             <div className="tk-card" style={{ "--c": "#b8860b" }}>
-              <div className="tk-card-name">The same weekly Scripture</div>
+              <div className="tk-card-name">A 10-resource workbook</div>
               <p className="tk-card-desc">
-                Follow the identical reading plan your athlete works through each week.
+                Everything in one place — from a Parent Style Quiz to a Roadblock
+                Evaluation — built to work through at your own pace.
               </p>
             </div>
             <div className="tk-card" style={{ "--c": "#5a6b4a" }}>
-              <div className="tk-card-name">The SEWN method</div>
+              <div className="tk-card-name">The Car Ride debrief</div>
               <p className="tk-card-desc">
-                Scripture, Explain, Where to apply, Now pray.
+                Turn the toughest ten minutes after a game into connection instead of
+                critique.
               </p>
             </div>
             <div className="tk-card" style={{ "--c": "#1b2a4a" }}>
-              <div className="tk-card-name">Reinforce at home</div>
+              <div className="tk-card-name">Do it yourself first</div>
               <p className="tk-card-desc">
-                Because you&apos;re in the same Word, the conversations happen naturally.
+                Each tool is designed to work through yourself first, then with your
+                athlete — so it actually lands.
               </p>
             </div>
           </div>
