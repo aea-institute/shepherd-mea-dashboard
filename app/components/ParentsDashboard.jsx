@@ -605,6 +605,68 @@ export default function ParentsDashboard() {
         </div>
       </section>
 
+      {/* breathing space */}
+      <div className="space-break" />
+
+      {/* PARENT / GUARDIAN TOOLKIT — view + buy on its own.
+          A dedicated purchase band (the page's one place with a real
+          price + buy button). Reuses the parchment card gradient, the
+          reset-card feature treatment, and the gold CTA palette so it
+          reads native. The Stripe href is the live Parent Add-On link. */}
+      <section className="zone zone-toolkit" id="toolkit">
+        <div className="tk-band">
+          <span className="tk-glow" />
+          <div className="tk-head">
+            <div className="tk-eyebrow">For Parents, Guardians &amp; Grandparents</div>
+            <h2 className="tk-title">The Parent / Guardian Toolkit</h2>
+            <div className="tk-subhead">Walk it with them, one week at a time.</div>
+            <p className="tk-lead">
+              Your athlete is training their mind and spirit every day. The Toolkit lets
+              you do it right alongside them — the same weekly Scripture they&apos;re in,
+              adapted for parents, guardians, and grandparents. The easiest way to
+              reinforce at home exactly what they&apos;re building in the program.
+            </p>
+          </div>
+
+          <div className="tk-cards">
+            <div className="tk-card" style={{ "--c": "#b8860b" }}>
+              <div className="tk-card-name">The same weekly Scripture</div>
+              <p className="tk-card-desc">
+                Follow the identical reading plan your athlete works through each week.
+              </p>
+            </div>
+            <div className="tk-card" style={{ "--c": "#5a6b4a" }}>
+              <div className="tk-card-name">The SEWN method</div>
+              <p className="tk-card-desc">
+                Scripture, Explain, Where to apply, Now pray.
+              </p>
+            </div>
+            <div className="tk-card" style={{ "--c": "#1b2a4a" }}>
+              <div className="tk-card-name">Reinforce at home</div>
+              <p className="tk-card-desc">
+                Because you&apos;re in the same Word, the conversations happen naturally.
+              </p>
+            </div>
+          </div>
+
+          <div className="tk-buy">
+            <div className="tk-price">
+              <span className="tk-price-amt">$25</span>
+              <span className="tk-price-per">/ year, auto-renews</span>
+            </div>
+            <a className="tk-cta"
+               href="https://buy.stripe.com/00w6oI9Wf3zV5Dv5JndQQ0R"
+               target="_blank" rel="noopener noreferrer">
+              Get the Toolkit →
+            </a>
+          </div>
+          <p className="tk-note">
+            Already have a family subscription? The Toolkit is included free — no need to
+            purchase it separately.
+          </p>
+        </div>
+      </section>
+
       {/* TICKER */}
       <footer className="ticker">
         <div className="ticker-tag">THE 15 MINDSETS</div>
@@ -803,6 +865,59 @@ const CSS = `
 .prog-tile--stub:hover { transform: none; border-color: rgba(20,22,27,0.09); box-shadow: none; }
 .prog-tile--stub::before { display: none; }
 
+/* PARENT/GUARDIAN TOOLKIT BAND */
+.tk-band {
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #eaddbd, #e7d9b8);
+  border: 1px solid rgba(20,22,27,0.10);
+  border-top: 3px solid #b8860b;
+  border-radius: 16px; padding: 30px 30px 26px;
+}
+.tk-glow {
+  position: absolute; inset: 0; opacity: 0.16; pointer-events: none;
+  background: radial-gradient(420px 240px at 100% 0%, #b8860b, transparent 70%);
+}
+.tk-head { position: relative; z-index: 1; max-width: 720px; }
+.tk-eyebrow {
+  font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  color: #6e5f38;
+}
+.tk-title { font-size: 30px; font-weight: 800; letter-spacing: -0.2px; line-height: 1.06; color: #14161b; margin-top: 7px; }
+.tk-subhead { font-size: 17px; font-weight: 800; letter-spacing: 0.3px; color: #b8860b; margin-top: 5px; }
+.tk-lead { font-size: 14.5px; color: #6e5f38; line-height: 1.55; margin-top: 12px; }
+
+.tk-cards {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin-top: 22px;
+}
+.tk-card {
+  border: 1px solid rgba(20,22,27,0.10); border-top: 3px solid var(--c);
+  border-radius: 12px; padding: 15px 16px; background: rgba(244,241,234,0.55);
+}
+.tk-card-name { font-size: 15px; font-weight: 800; letter-spacing: 0.2px; color: #14161b; }
+.tk-card-desc { font-size: 13px; line-height: 1.5; color: #6e5f38; margin-top: 7px; }
+
+.tk-buy {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 24px;
+}
+.tk-price { display: flex; align-items: baseline; gap: 8px; }
+.tk-price-amt { font-size: 30px; font-weight: 900; color: #14161b; letter-spacing: -0.5px; }
+.tk-price-per { font-size: 13px; font-weight: 700; color: #6e5f38; letter-spacing: 0.3px; }
+.tk-cta {
+  display: inline-block; padding: 13px 26px; border-radius: 10px;
+  background: linear-gradient(90deg, #b8860b, #a08a52); color: #14161b;
+  font-weight: 800; font-size: 14.5px; text-decoration: none; letter-spacing: 0.3px;
+  box-shadow: 0 12px 30px -12px rgba(184,134,11,0.9);
+  transition: transform .15s ease, filter .15s ease;
+}
+.tk-cta:hover { transform: translateY(-2px); filter: brightness(1.07); }
+.tk-cta:focus-visible { outline: 2px solid #14161b; outline-offset: 3px; }
+.tk-note {
+  position: relative; z-index: 1;
+  font-size: 12.5px; color: #6e5f38; font-style: italic; line-height: 1.5; margin-top: 14px;
+}
+
 /* TICKER */
 .ticker {
   flex: 0 0 auto; display: flex; align-items: stretch; gap: 0;
@@ -906,6 +1021,7 @@ const CSS = `
 
 @media (max-width: 760px) {
   .prog-grid { grid-template-columns: repeat(2, 1fr); }
+  .tk-cards { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .aud-grid { grid-template-columns: repeat(2, 1fr); }
@@ -913,6 +1029,10 @@ const CSS = `
   .prog-grid { grid-template-columns: 1fr; }
   .panel-grid, .reset-row, .abm-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .tk-band { padding: 24px 20px 22px; }
+  .tk-title { font-size: 25px; }
+  .tk-buy { gap: 14px; }
+  .tk-cta { width: 100%; text-align: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ticker-track { animation: none; }
