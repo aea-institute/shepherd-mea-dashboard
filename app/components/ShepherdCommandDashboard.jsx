@@ -134,9 +134,9 @@ const METHODOLOGY = [
 // The Shepherd Mirror is no longer a standalone tile — it's wrapped into
 // the Shepherd Interactive Coach (still referenced in that panel). Office
 // Hours and the Athlete Locker Room are Add-Ons (Office Hours is not
-// Shepherd-branded). Activate Seven is the lone Future Build stub. The
-// Parent/Guardian Toolkit is a new Add-On. SEWN Journal + Bulletin Board
-// are new (launch Oct 1).
+// Shepherd-branded). Activate Seven and the SEWN Journal Bulletin Board
+// are the Future Build stubs. The Parent/Guardian Toolkit is a new Add-On.
+// SEWN Journal + Bulletin Board are new (launch Oct 1).
 
 // Category chip colors (additive — tiles keep their own accent color)
 const CAT = {
@@ -229,7 +229,7 @@ const PRODUCTS = [
     id: "sewnboard",
     label: "SEWN Journal Bulletin Board",
     tag: "Team Board",
-    cat: "ALL YEAR",
+    cat: "FUTURE BUILD",
     color: "#5a6b4a",
     stub: true,
   },
